@@ -1,0 +1,19 @@
+.button{
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+    border: 1px solid #f2f2f2;
+    background-color: #201d1d;
+    border-radius: 10px;
+    color: #f2f2f2;
+    padding: 10px 0;
+    transition: all 0.5s linear;
+    outline: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.button:hover{
+    background-color: #f2f2f2;
+    color: #201d1d;
+    border: 1px solid #201d1d;
+}
