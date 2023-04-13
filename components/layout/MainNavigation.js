@@ -5,7 +5,7 @@ function MainNavigation(props) {
   return (
     <Fragment>
       <header className={classes.header}>
-        <div className={classes.logo}>React Meetups</div>
+        <div className={classes.logo}>NextJs Demo</div>
         <nav>
           <ul>
             <li>

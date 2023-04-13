@@ -13,6 +13,7 @@ const meetupId = ({ meetData }) => {
         title={meetData.title}
         address={meetData.address}
         image={meetData.image}
+        description={meetData.description}
       />
     </Fragment>
   );
@@ -52,6 +53,7 @@ export const getStaticProps = async (context) => {
         title: selected.title,
         address: selected.address,
         image: selected.image,
+        description: selected.description,
       },
     },
     revalidate: 1,

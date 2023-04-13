@@ -6,7 +6,8 @@ const Meetupiditem = (props) => {
     <div className="meetupid">
       <img src={props.image} alt={props.title} />
       <h2>{props.title}</h2>
-      <p>{props.address}</p>
+      <h3>{props.address}</h3>
+      <p>{props.description}</p>
       <Link href="/">
         <button className={styles.button}>Back</button>
       </Link>
