@@ -4,7 +4,7 @@ import styles from './Meetupiditem.module.css'
 const Meetupiditem = (props) => {
   return (
     <div className="meetupid">
-      <img src={props.image} alt={props.title} />
+      <img src={props.image} alt={props.title} style={{width:'100%'}}/>
       <h2>{props.title}</h2>
       <h3>{props.address}</h3>
       <p>{props.description}</p>

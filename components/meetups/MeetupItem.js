@@ -9,7 +9,7 @@ function MeetupItem(props) {
   // First Option
   const router=useRouter();
   const showdetailhandler=()=>{
-    const data=router.push('/' + props.id)
+    const data=router.push(`/${props.id}`)
     return data;
   }
   return (

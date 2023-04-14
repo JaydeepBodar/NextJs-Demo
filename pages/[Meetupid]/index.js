@@ -1,34 +1,42 @@
 import { useRouter } from "next/router";
 import Meetupiditem from "../../components/meetups/Meetupiditem";
-const meetupId = ({meetData}) => {
-  console.log(meetData)
+import DummyData from "../../components/Dummydata";
+const meetupId = ({meetnewData}) => {
+  const data=meetnewData[0]
+  console.log("object",meetnewData)
   return (
     <Meetupiditem
-      id={meetData.id}
-      title={meetData.title}
-      address={meetData.address}
-      image={meetData.image}
+      id={data.id}
+      title={data.title}
+      address={data.address}
+      image={data.image}
     />
   );
 };
 export default meetupId;
 export const getStaticPaths = async () => {
+  const path=DummyData.map((data)=>({
+    params:{Meetupid:data.id}
+  }))
+  console.log("id",path)
   return {
     fallback: false,
-    paths: [{ params: { Meetupid: "1" } }, { params: { Meetupid: "2" } }],
+    paths:path,
   };
 };
 export const getStaticProps = async (context) => {
   const meetupid = context.params.Meetupid;
+  const data=DummyData.filter(p=>p.id === meetupid)
+  console.log(data)
   return {
     props: {
-      meetData: {
-        id: meetupid,
-        title: "new1",
-        address: "dduiwuuwuhwdowdwoioihwdoiwodhwoidowiiodwohidw",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Red_Fuji_southern_wind_clear_morning.jpg/800px-Red_Fuji_southern_wind_clear_morning.jpg",
-      },
-    },
+      meetnewData: 
+        data.map((data)=>{return ({
+          id: data.id,
+          title: data.title,
+          address:data.address,
+          image:data.image
+        })}
+      )},
   };
 };
