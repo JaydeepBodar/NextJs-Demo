@@ -19,9 +19,7 @@ const meetupId = ({ meetData }) => {
   );
 };
 export const getStaticPaths = async () => {
-  const responsedata = await MongoClient.connect(
-    "mongodb+srv://Adminuser:Jb246802@cluster0.0rbnmky.mongodb.net/meetuppage?retryWrites=true&w=majority"
-  );
+  const responsedata = await MongoClient.connect(process.env.MONGO_URL);
   const database = responsedata.db();
   const collection = database.collection("meetsup");
   const datashow = await collection.find({}, { _id: 1 }).toArray();
@@ -36,6 +34,7 @@ export const getStaticPaths = async () => {
   };
 };
 export const getStaticProps = async (context) => {
+  console.log("context", context);
   const newid = context.params.NewAddData;
   const responsedata = await MongoClient.connect(
     "mongodb+srv://Adminuser:Jb246802@cluster0.0rbnmky.mongodb.net/meetuppage?retryWrites=true&w=majority"

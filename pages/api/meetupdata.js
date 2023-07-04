@@ -3,9 +3,7 @@ const Handle = async (req, res) => {
   if (req.method === "POST") {
     const data =JSON.parse(req.body)[0]; 
     console.log(data)
-    const responsedata=await MongoClient.connect(
-      "mongodb+srv://Adminuser:Jb246802@cluster0.0rbnmky.mongodb.net/meetuppage?retryWrites=true&w=majority"
-    );
+    const responsedata=await MongoClient.connect(process.env.MONGO_URL);
     console.log(responsedata)
     const database=responsedata.db();
     const collection=database.collection('meetsup');
